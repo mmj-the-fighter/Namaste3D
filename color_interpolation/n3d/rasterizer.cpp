@@ -24,7 +24,7 @@ namespace n3d
 		vec4f C = pv2->position;
 		color3f colorA = pv0->color;
 		color3f colorB = pv1->color;
-		color3f colorC = pv1->color;
+		color3f colorC = pv2->color;
 		colorA.b *= 255;
 		colorA.g *= 255;
 		colorA.r *= 255;
