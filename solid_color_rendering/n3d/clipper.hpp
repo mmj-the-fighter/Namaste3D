@@ -81,10 +81,6 @@ namespace n3d{
 			i.position.y = a.position.y + (b.position.y - a.position.y) * t;
 			i.position.z = a.position.z + (b.position.z - a.position.z) * t;
 			i.position.w = a.position.w + (b.position.w - a.position.w) * t;
-
-			i.color.b = a.color.b + (b.color.b - a.color.b) * t;
-			i.color.g = a.color.g + (b.color.g - a.color.g) * t;
-			i.color.r = a.color.r + (b.color.r - a.color.r) * t;
 		}
 		inline float CalculateSignedDistanceRatio(const vec4f& src,
 			const vec4f& dst,
@@ -106,9 +102,11 @@ namespace n3d{
 		{
 			insidePointsCount = 0;
 			outsidePointsCount = 0;
+			color3f firstVertexColor = triangle.v[0].color;
 
 			for (int i = 0; i<3; ++i) {
 				SwrVertex pt = triangle.v[i];
+				
 				const float xyz = pt.position.v[ixyz];
 				const float w = pt.position.w;
 				const bool outside = 
@@ -150,6 +148,9 @@ namespace n3d{
 				Interpolate(vb1, vb, va, bt);
 				SwrVertex vc1;
 				Interpolate(vc1, vc, va, ct);
+				va.color = firstVertexColor;
+				vb1.color = firstVertexColor;
+				vc1.color = firstVertexColor;
 				// Preserve winding order
 				// B follows A
 				if (((ai + 1) % 3) == bi) {
@@ -186,6 +187,10 @@ namespace n3d{
 				Interpolate(va1, vb, va, abt);
 				SwrVertex vc1;
 				Interpolate(vc1, vb, vc, cbt);
+				va.color = firstVertexColor;
+				va1.color = firstVertexColor;
+				vc1.color = firstVertexColor;
+
 
 				// Preserve winding order
 				// B follows A
