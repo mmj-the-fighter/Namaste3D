@@ -81,6 +81,10 @@ namespace spn
 		}
 		canvas = new Canvas(width, height);
 		canvas->SetFont(font);
+		canvas->Clear();
+		canvas->DrawText("Spinach Initialized..", 0, 0);
+		RenderCanvas();
+
 		return 0;
 	}
 
