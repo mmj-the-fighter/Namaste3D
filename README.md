@@ -1,6 +1,7 @@
 # Namaste3D
 Progression of Software Rasterization Experiments  
-[Demo on YouTube](https://www.youtube.com/watch?v=E1UpdbCpP9g)  
+[Eight Basic Exercises Demo on YouTube](https://www.youtube.com/watch?v=E1UpdbCpP9g)  
+[Scene Parsing and VF Culling Demo on YouTube](https://youtu.be/hHTu3iuzaeY)  
 
 **Building source code**  
 Make a directory called "buildroot" in the project directory
