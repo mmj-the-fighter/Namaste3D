@@ -9,6 +9,7 @@ set(LINEAR_TEXTURING linear_texturing)
 set(PERSPECTIVE_CORRECT_TEXTURING perspective_correct_texturing)
 set(DEPTH_BUFFERING depth_buffering)
 set(LIGHTING_AND_SHADING lighting_and_shading)
+set(SCENE_PARSING scene_parsing)
 #---------------------------------------------
 # set standards
 set(CMAKE_CXX_STANDARD 17)
@@ -344,4 +345,43 @@ target_include_directories(${LIGHTING_AND_SHADING} PRIVATE
 
 
 target_link_libraries(${LIGHTING_AND_SHADING} PRIVATE SDL3::SDL3)
+# ------------------------------------------
+
+
+# ------------------------------------
+
+# 8. SCENE_PARSING
+# Collect C++ source files
+file(GLOB_RECURSE SCENE_PARSING_CPP_SRC CONFIGURE_DEPENDS
+    scene_parsing/*.cpp
+	scene_parsing/demo/*.cpp
+    scene_parsing/n3d/*.cpp
+)
+
+# Collect headers 
+file(GLOB_RECURSE SCENE_PARSING_CPP_H CONFIGURE_DEPENDS
+	scene_parsing/demo/*.h
+    scene_parsing/n3d/*.h
+	scene_parsing/n3d/*.hpp
+)
+
+# Create the executable
+add_executable(	${SCENE_PARSING}
+	${SCENE_PARSING_CPP_SRC}
+	${SPN_CPP_SRC}
+    ${SPN_C_SRC}
+    ${SCENE_PARSING_CPP_H} 
+	${SPN_H}
+)
+
+target_include_directories(${SCENE_PARSING} PRIVATE
+    spinach/common
+    spinach/core
+    spinach/external/stb
+	scene_parsing/demo/
+	scene_parsing/n3d/
+)
+
+
+target_link_libraries(${SCENE_PARSING} PRIVATE SDL3::SDL3)
 # ------------------------------------------

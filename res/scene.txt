@@ -1,0 +1,122 @@
+projection_begin
+id 0
+perspective 45 1 2000
+ortho -2 2 -2 2 -20 200
+projection_end
+
+projection_begin
+id 1
+perspective 32 10 5000
+ortho -2.4 2.4 -2.4 2.4 -100.003 1000.0
+projection_end
+
+view_begin
+id 0
+eye 0 2 10
+at 0 2 0
+up 0 1 0
+view_end
+
+mesh_begin
+id 0
+filename "../res/cube.obj"
+scale 1 1 1
+mesh_end
+
+mesh_begin
+id 1
+filename "../res/suzanne.obj"
+scale 1 1 1
+mesh_end
+
+mesh_begin
+id 2
+filename "../res/plane.obj"
+scale 20 1 20
+mesh_end
+
+texture_begin
+id 0
+filename "../res/crate.png"
+texture_end
+
+texture_begin
+id 1
+filename "../res/lena_color.png"
+texture_end
+
+texture_begin
+id 2
+filename "../res/grass.png"
+texture_end
+
+
+material_begin
+id 0
+ambient 0.1 0.2 0.4
+diffuse 0.1 0.2 0.4
+material_end
+
+point_light_begin
+id 0
+ambient 20 20 20
+diffuse 0 32 192
+trans 0 0 10
+point_light_end
+
+# monkey
+geom_object_begin
+id 0
+mesh_id 1
+texture_id 0
+material_id 0
+scale 1 1 1
+rot	0 0 0
+trans 0 0 0
+parent_id -1
+geom_object_end
+
+# cube
+geom_object_begin
+id 1
+mesh_id 0
+texture_id 0
+material_id 0
+scale 1 1 1
+rot	0 4 0
+trans 3 0 15
+parent_id -1
+geom_object_end
+
+# cube
+geom_object_begin
+id 2
+mesh_id 0
+texture_id 1
+material_id 0
+scale 1 1 1
+rot	0 0 0
+trans 0 8 0
+parent_id -1
+geom_object_end
+
+
+# plane
+geom_object_begin
+id 3
+mesh_id 2
+texture_id 2
+material_id 0
+scale 1 1 1
+rot	0 0 0
+trans 0 0 0
+parent_id -1
+geom_object_end
+
+
+
+initializer_begin
+projection_id 0
+view_id 0
+point_light_id 0
+initializer_end
