@@ -93,7 +93,7 @@ namespace n3d{
 		m[15] = 1.0f;
 	}
 
-	inline void mat3x3_transpose(mat4x4 result, mat3x3 m)
+	inline void mat3x3_transpose(mat3x3 result, mat3x3 m)
 	{
 		result[0] = m[0];
 		result[1] = m[3];
