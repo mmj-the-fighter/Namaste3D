@@ -1,4 +1,5 @@
 buildroot/
+build/
 
 # Prerequisites
 *.d
